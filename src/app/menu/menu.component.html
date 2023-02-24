@@ -1,1 +1,28 @@
-<p>menu works!</p>
+<div class="container">
+    <div class="row row-cols-lg-3 row-cols-sm-1 gx-2 gy-2">        
+        <div *ngFor="let dish of dishes, index as i">
+            <div class="card col">
+                <img src="{{ dish.image }}" class="card-img-top image-fluid" height="256px"
+                    alt="placeholder picture from google {{i}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dish.name }}</h5>
+                    <p class="card-text">{{ dish.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ formatPrice(dish.price) }}</li>
+                </ul>
+                <div *ngIf="dish.availibility; else notAvailible">
+                    <div class="card-body d-flex justify-content-between py-2">
+                        <a href="#" class="btn btn-outline-primary">Details</a>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+                <ng-template #notAvailible>
+                    <div class="card-body c-height">
+                        <p class="card-text text-danger">Sorry, this item is not Avalible</p>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
