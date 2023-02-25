@@ -1,1 +1,16 @@
-<p>details works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <img src="{{ dish.image }}" class="image-fluid" width="100%"
+            alt="placeholder picture from google {{ dish.name }}">
+        </div>
+        <div class="col-lg-8 ">
+            <h3>{{dish.name}}</h3>
+            <p>{{dish.description}}</p>
+            <hr>
+            <p>Price: {{ formatPrice(dish.price) }}</p>
+            <hr>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { dishes, IDishes } from '../dishes';
+import { IDishes, dishes } from '../Dish';
+import { formatPrice } from '../formatPrice';
 
 @Component({
   selector: 'app-menu',
@@ -7,10 +8,7 @@ import { dishes, IDishes } from '../dishes';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  //making my imported dishes accessible in HTML
+  //making my imported dishes and formatPrice function accessible in HTML
   dishes: Array<IDishes> = dishes;
-  
-  formatPrice(price: number): string {
-    return price.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-  }
+  formatPrice = formatPrice;
 }
