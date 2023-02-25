@@ -18,7 +18,11 @@
                     <a class="nav-link" routerLink="/menu">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/cart">Cart</a>
+                    <a class="nav-link" routerLink="/cart">
+                        Cart
+                        <ng-container *ngIf="currentItems() == 0; else displayItems"></ng-container>
+                        <ng-template #displayItems class="bg-danger"><span class="bg-danger text-white c-cart">{{ currentItems() }}</span></ng-template>
+                    </a>
                 </li>
             </ul>
         </div>

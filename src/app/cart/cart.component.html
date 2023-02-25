@@ -1,1 +1,49 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="row row-cols-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="h3 card-title">Cart</h3>
+                <hr>
+                <div *ngFor="let dish of cart">
+                    <ul class="list-group list-group-flush d-flex flex-row">
+                        <li class="list-group-item">
+                            <img src="{{ dish.image }}" class="card-img-top image-fluid" height="64px"
+                                alt="placeholder picture from google {{ dish.name }}">
+                        </li>
+                        <li class="list-group-item">
+                            <h5 class="card-title">{{ dish.name }}</h5>
+                            <p class="card-text">{{ dish.description }}</p>
+                        </li>
+                        <li class="list-group-item">Price: {{ formatPrice(dish.price) }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="h3 card-title">Summary</h3>
+                <hr>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex flex-col justify-content-between">
+                        <p>Products</p>
+                        <p>{{ formatPrice(summary()) }}</p>
+                    </li>
+                    <li class="list-group-item d-flex flex-col justify-content-between">
+                        <p>Service</p>
+                        <p>{{ formatPrice(service()) }}</p>
+                    </li>
+                    <li class="list-group-item d-flex flex-col justify-content-between">
+                        <p>Discount</p>
+                        <p *ngIf="total() > 40; else noDiscount" class="text-success">15%</p>
+                        <ng-template #noDiscount>0%</ng-template>
+                    </li>
+                    <li class="list-group-item d-flex flex-col justify-content-between">
+                        <p>Total</p>
+                        <p>{{ formatPrice(total()) }}</p>
+                    </li>
+                </ul>
+                <button class="btn btn-primary w-100" (click)="order()">Order</button>
+            </div>
+        </div>
+    </div>
+</div>

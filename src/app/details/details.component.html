@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-4 ">
             <img src="{{ dish.image }}" class="image-fluid" width="100%"
-            alt="placeholder picture from google {{ dish.name }}">
+                alt="placeholder picture from google {{ dish.name }}">
         </div>
         <div class="col-lg-8 ">
             <h3>{{dish.name}}</h3>
@@ -10,7 +10,8 @@
             <hr>
             <p>Price: {{ formatPrice(dish.price) }}</p>
             <hr>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <button class="btn btn-primary" (click)="addToCart(dish)">Add to Cart</button>
+            <a routerLink="/menu" class="btn btn-outline-primary mx-2">Back</a>
         </div>
     </div>
 </div>

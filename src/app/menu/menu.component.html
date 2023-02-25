@@ -14,7 +14,7 @@
                 <div *ngIf="dish.availibility; else notAvailible">
                     <div class="card-body d-flex justify-content-between py-2">
                         <a routerLink="/details/{{ i }}" class="btn btn-outline-primary">Details</a>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <button class="btn btn-primary" (click)="addToCart(dish)">Add to Cart</button>
                     </div>
                 </div>
                 <ng-template #notAvailible>
