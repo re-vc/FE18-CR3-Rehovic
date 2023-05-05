@@ -22,8 +22,7 @@
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
-            ],
-            "baseHref": "https://re-vc.github.io/FE18-CR3-Rehovic/",
+            ],            
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
